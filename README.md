@@ -15,7 +15,7 @@ Install from pypi:
 pip install musicscript
 ```
 
-Rune `musicscript` in terminal:
+Run `musicscript` in terminal:
 
 ```sh
 # run terminal
@@ -27,7 +27,7 @@ musicscript
 # Enter Yotube Playlist / Soundcloud Album:
 ```
 
-## Running Project
+## Local Setup
 
 > [!NOTE]
 >
