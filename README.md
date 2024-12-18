@@ -1,6 +1,8 @@
 # Music Script
 
-Download songs from youtube playlist into an Album:
+Downloads songs from Youtube Playlist or Soundcloud and turns them into an Album with Artist metadata.
+
+Add album to your Apple Music App or Android to listen offline.
 
 ## Dependencies
 
@@ -18,7 +20,7 @@ pip install musicscript
 Run `musicscript` in terminal:
 
 ```sh
-# run terminal
+# run in terminal
 musicscript
 
 # 👾 Hello, Music Script
@@ -64,4 +66,6 @@ uv run musicscript;
 
 ## Test
 
-Add songs to your apple music and enjoy offline streaming!
+TODO!
+
+Enjoy offline streaming!
