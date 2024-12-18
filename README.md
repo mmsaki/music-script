@@ -28,7 +28,9 @@ Download songs from youtube playlist into an Album:
 Run inside project
 
 ```sh
-uv run download.py
+cd music-script;
+
+uv run download.py;
 
 # Answer input prompts
 #
