@@ -7,7 +7,27 @@ Download songs from youtube playlist into an Album:
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) - used to download songs from youtube / soundcloud / spotify
 - [ffmpeg](https://ffmpeg.org/download.html) - using for adding metadata to music files
 
-## Run Project
+## How to Install
+
+Install from pypi:
+
+```sh
+pip install musicscript
+```
+
+Rune `musicscript` in terminal:
+
+```sh
+# run terminal
+musicscript
+
+# 👾 Hello, Music Script
+# Enter Artist Name:
+# Enter Album Name:
+# Enter Yotube Playlist / Soundcloud Album:
+```
+
+## Running Project
 
 > [!NOTE]
 >
@@ -30,7 +50,9 @@ Run inside project
 ```sh
 cd music-script;
 
-uv run download.py;
+uv sync;
+
+uv run musicscript;
 
 # Answer input prompts
 #
