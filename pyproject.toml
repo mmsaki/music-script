@@ -7,7 +7,9 @@ authors = [
     { name = "Meek Msaki", email = "98189596+mmsaki@users.noreply.github.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "ruff>=0.8.3",
+]
 
 [project.scripts]
 musicscript = "musicscript:main"
