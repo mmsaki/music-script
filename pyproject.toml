@@ -1,15 +1,13 @@
 [project]
 name = "musicscript"
-version = "0.1.0"
+version = "0.1.1"
 description = "Add your description here"
 readme = "README.md"
 authors = [
-    { name = "Meek Msaki", email = "98189596+mmsaki@users.noreply.github.com" }
+    { name = "Meek Msaki", email = "98189596+mmsaki@users.noreply.github.com" },
 ]
 requires-python = ">=3.12"
-dependencies = [
-    "ruff>=0.8.3",
-]
+dependencies = ["ruff>=0.8.3"]
 
 [project.scripts]
 musicscript = "musicscript:main"
