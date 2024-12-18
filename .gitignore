@@ -8,3 +8,11 @@ wheels/
 
 # Virtual environments
 .venv
+
+# ruff
+.ruff_cache
+
+# mypy
+.mypy_cache
+
+music
