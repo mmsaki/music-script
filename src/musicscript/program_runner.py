@@ -4,6 +4,7 @@ from .runner import Runner
 
 Outcome = str
 
+
 class ProgramRunner(Runner):
     """Class that take in a program and runs it"""
 
@@ -11,11 +12,13 @@ class ProgramRunner(Runner):
         self.program = program
 
     def run_process(self, inp: str = "") -> subprocess.CompletedProcess:
-        return subprocess.run(self.program,
-                              input=inp,
-                              stdout=subprocess.PIPE,
-                              stderr=subprocess.PIPE,
-                              universal_newlines=True)
+        return subprocess.run(
+            self.program,
+            input=inp,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            universal_newlines=True,
+        )
 
     def run(self, inp: str = "") -> Tuple[subprocess.CompletedProcess, Outcome]:
         result = self.run_process(inp)

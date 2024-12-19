@@ -4,6 +4,7 @@ from musicscript.utils import download
 from musicscript.utils import rename_songs
 from musicscript.utils import add_metadata
 
+
 def main() -> None:
     print("👾 Hello, Music Script")
 
@@ -15,15 +16,15 @@ def main() -> None:
     cover = input("Enter Image: ")
 
     # [0]: DEFAULT values
-    if not artist: 
+    if not artist:
         artist = "LUCKI"
         print("💿 Using default artist:", artist)
 
-    if not title: 
+    if not title:
         title = "GEMINI!"
         print("💿 Using default album:", title)
-        
-    if not url: 
+
+    if not url:
         url = "https://www.youtube.com/watch?v=-_CXWQQIOnQ&list=OLAK5uy_nOYJu0d8SCcr6K9n_0cJFEwG9WwjtyJQk"
         print("💿 Using default album:", title)
 
@@ -34,10 +35,10 @@ def main() -> None:
     album.url = url
     album.cover = cover
     album.path = "music/" + album.artist + " - " + album.title
-    album._download_path = album.path + '/download'
+    album._download_path = album.path + "/download"
 
     print("📦 Album Directory: ", album.path)
-    
+
     # [1]: Download songs
     download(album, log=True)
 
@@ -53,6 +54,7 @@ def main() -> None:
     print("💿 Album:", album.title)
     print("💿 Artist:", album.artist)
     print("💿 Cover:", album.cover)
+
 
 if __name__ == "__main__":
     main()

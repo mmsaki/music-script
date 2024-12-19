@@ -10,23 +10,24 @@ def download(album: Album, log=False):
     os.makedirs(album._download_path, exist_ok=True)
 
     args = [
-        'yt-dlp',
-        '-x',
-        '--audio-format',
-        'mp3',
-        '-P',
-        f'{album._download_path}',
-        '-vU', 
-        '-R', 
-        'inf',
-        '--file-access-retries', 
-        'inf',
-        '--fragment-retries',
-        'inf',
-        '-o',
-        '%(title)s.%(ext)s',
-        album.url
+        "yt-dlp",
+        "-x",
+        "--audio-format",
+        "mp3",
+        "-P",
+        album._download_path,
+        "-vU",
+        "-R",
+        "inf",
+        "--file-access-retries",
+        "inf",
+        "--fragment-retries",
+        "inf",
+        "-o",
+        "%(title)s.%(ext)s",
+        album.url,
     ]
+
     p = ProgramRunner(program=args)
     res = p.run()
     if log:
@@ -34,6 +35,7 @@ def download(album: Album, log=False):
         if res[0].stdout:
             print("🪵 Log: ", res[0].stdout)
     print("🗂️ Download Results: ", res[1])
+
 
 def rename_songs(album: Album, log=False):
     """Rename songs by removing yt-dlpd download tags"""
@@ -54,9 +56,10 @@ def rename_songs(album: Album, log=False):
     if log:
         print("📦 Renamed Songs Complete")
 
+
 def add_metadata(album: Album, log=False):
     """Add song metadata, ex. Artist Name, Album Name"""
-    
+
     files = os.listdir(album._download_path)
 
     for file in files:
@@ -65,30 +68,30 @@ def add_metadata(album: Album, log=False):
         new_path = album.path + "/" + file
 
         # Create and merge cover stream
-        album_name = 'album=' + f'{album.title}'
-        artist_name = 'artist=' + f'{album.artist}'
-        metadata_args =  [
-            'ffmpeg',
-            '-i',
+        album_name = "album=" + f"{album.title}"
+        artist_name = "artist=" + f"{album.artist}"
+        metadata_args = [
+            "ffmpeg",
+            "-i",
             file_path,
-            '-i',
+            "-i",
             album.cover,
-            '-map',
-            '0',
-            '-map',
-            '1',
-            '-c',
-            'copy',
-            '-c',
-            'copy',
-            '-disposition:1',
-            'attached_pic',
-            '-y',
-            '-metadata', 
+            "-map",
+            "0",
+            "-map",
+            "1",
+            "-c",
+            "copy",
+            "-c",
+            "copy",
+            "-disposition:1",
+            "attached_pic",
+            "-y",
+            "-metadata",
             album_name,
-            '-metadata', 
-            artist_name, 
-            new_path
+            "-metadata",
+            artist_name,
+            new_path,
         ]
 
         # Run ffmpeg with cover args
