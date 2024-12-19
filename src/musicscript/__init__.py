@@ -10,32 +10,44 @@ def main() -> None:
 
     # [0]: USER prompt
     artist = input("Enter Artist Name: ")
-    title = input("Enter Album Name: ")
+    album_name = input("Enter Album Name: ")
     url = input("Enter Soundcloud / Youtube Playlist: ")
     cover = input("Enter Image: ")
-    cover = input("Enter Image: ")
+    year = input("Enter Year: ")
+    copyright = input("Enter Copyright: ")
+    genre = input("Enter Genre: ")
+    # comment = input("Enter comment: ")
+    # description = input("Enter description: ")
+    # grouping = input("Enter grouping: ")
 
     # [0]: DEFAULT values
     if not artist:
         artist = "LUCKI"
         print("💿 Using default artist:", artist)
 
-    if not title:
-        title = "GEMINI!"
-        print("💿 Using default album:", title)
+    if not album_name:
+        album_name = "GEMINI!"
+        print("💿 Using default album:", album_name)
 
     if not url:
         url = "https://www.youtube.com/watch?v=-_CXWQQIOnQ&list=OLAK5uy_nOYJu0d8SCcr6K9n_0cJFEwG9WwjtyJQk"
-        print("💿 Using default album:", title)
+        print("💿 Using default url:", url)
 
     # [0]: Populate Album
     album = Album()
     album.artist = artist
-    album.title = title
+    album.album_artist = artist
+    album.album = album_name
     album.url = url
     album.cover = cover
-    album.path = "music/" + album.artist + " - " + album.title
+    album.path = "music/" + album.artist + " - " + album.album
     album._download_path = album.path + "/download"
+    album.year = year
+    album.copyright = copyright
+    album.genre = genre
+    # album.comment = comment
+    # album.description = description
+    # album.grouping = grouping
 
     print("📦 Album Directory: ", album.path)
 
@@ -49,11 +61,14 @@ def main() -> None:
     add_metadata(album, log=True)
 
     # [4]: Print Results
-    print("🗂️ Job Completed", os.getcwd() + "/" + album.path)
+    print("🗂️ Job Completed: Open", os.getcwd() + "/" + album.path)
     print("🔗 Url:", album.url)
     print("💿 Album:", album.title)
     print("💿 Artist:", album.artist)
     print("💿 Cover:", album.cover)
+    print("💿 Year:", album.year)
+    print("💿 Genre:", album.genre)
+    print("💿 Copyright:", album.copyright)
 
 
 if __name__ == "__main__":

@@ -62,14 +62,26 @@ def add_metadata(album: Album, log=False):
 
     files = os.listdir(album._download_path)
 
-    for file in files:
+    for track_number, file in enumerate(files):
         # new paths
         file_path = album._download_path + "/" + file
         new_path = album.path + "/" + file
 
         # Create and merge cover stream
-        album_name = "album=" + f"{album.title}"
-        artist_name = "artist=" + f"{album.artist}"
+        album_name = "album=" + f"{album.album}"
+        title = "title=" + f"{file[:-4]}"
+        artist = "artist=" + f"{album.artist}"
+        album_artist = "album_artist=" + f"{album.album_artist}"
+        year = "year=" + f"{album.year}"
+        track = "track=" + f"{track_number + 1}"
+        comment = "comment=" + f"{album.comment}"
+        genre = "genre=" + f"{album.genre}"
+        copyright = "copyright=" + f"{album.copyright}"
+        description = "description=" + f"{album.description}"
+        grouping = "grouping=" + f"{album.grouping}"
+        # lyrics = input(f"Enter Song Lyrics ({file}): ") # Ignore for now
+        # song_lyrcis = "artist=" + f"{lyrics}"
+
         metadata_args = [
             "ffmpeg",
             "-i",
@@ -82,15 +94,21 @@ def add_metadata(album: Album, log=False):
             "1",
             "-c",
             "copy",
-            "-c",
-            "copy",
             "-disposition:1",
             "attached_pic",
             "-y",
-            "-metadata",
-            album_name,
-            "-metadata",
-            artist_name,
+            "-metadata", album_name,
+            "-metadata", artist,
+            "-metadata", album_artist,
+            "-metadata", title,
+            "-metadata", year,
+            "-metadata", track,
+            "-metadata", comment,
+            "-metadata", genre,
+            "-metadata", copyright,
+            "-metadata", description,
+            "-metadata", grouping,
+            # "-metadata", song_lyrcis,
             new_path,
         ]
 
