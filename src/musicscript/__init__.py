@@ -63,7 +63,7 @@ def main() -> None:
     # [4]: Print Results
     print("🗂️ Job Completed: Open", os.getcwd() + "/" + album.path)
     print("🔗 Url:", album.url)
-    print("💿 Album:", album.title)
+    print("💿 Album:", album.album)
     print("💿 Artist:", album.artist)
     print("💿 Cover:", album.cover)
     print("💿 Year:", album.year)
