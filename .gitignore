@@ -15,4 +15,6 @@ wheels/
 # mypy
 .mypy_cache
 
+# local files
 music
+.DS_Store
