@@ -11,6 +11,8 @@ def main() -> None:
     artist = input("Enter Artist Name: ")
     title = input("Enter Album Name: ")
     url = input("Enter Soundcloud / Youtube Playlist: ")
+    cover = input("Enter Image: ")
+    cover = input("Enter Image: ")
 
     # [0]: DEFAULT values
     if not artist: 
@@ -30,6 +32,7 @@ def main() -> None:
     album.artist = artist
     album.title = title
     album.url = url
+    album.cover = cover
     album.path = "music/" + album.artist + " - " + album.title
     album._download_path = album.path + '/download'
 
@@ -49,3 +52,7 @@ def main() -> None:
     print("🔗 Url:", album.url)
     print("💿 Album:", album.title)
     print("💿 Artist:", album.artist)
+    print("💿 Cover:", album.cover)
+
+if __name__ == "__main__":
+    main()

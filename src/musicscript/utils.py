@@ -45,6 +45,7 @@ def rename_songs(album: Album, log=False):
         new_name = new_name.replace(" (Lyric Video)", "")
         new_name = new_name.replace(" (Lyric Video)", "")
         new_name = new_name.replace(" (Visualizer)", "")
+        new_name = new_name.replace(" (OFFICIAL VIDEO)", "")
         new_name = new_name.replace(f"{album.artist} - ", "")
         # TODO: santize song titles
         new_path = album._download_path + "/" + new_name
@@ -63,24 +64,37 @@ def add_metadata(album: Album, log=False):
         file_path = album._download_path + "/" + file
         new_path = album.path + "/" + file
 
-        # song metadata
+        # Create and merge cover stream
         album_name = 'album=' + f'{album.title}'
         artist_name = 'artist=' + f'{album.artist}'
-        args =  [
-            'ffmpeg', 
-            '-i', 
-            file_path, 
-            '-y', 
+        metadata_args =  [
+            'ffmpeg',
+            '-i',
+            file_path,
+            '-i',
+            album.cover,
+            '-map',
+            '0',
+            '-map',
+            '1',
+            '-c',
+            'copy',
+            '-c',
+            'copy',
+            '-disposition:1',
+            'attached_pic',
+            '-y',
             '-metadata', 
-            album_name, 
+            album_name,
             '-metadata', 
             artist_name, 
-            f"{new_path}"
+            new_path
         ]
 
-        # run ffmpeg
-        p = ProgramRunner(program=args)
+        # Run ffmpeg with cover args
+        p = ProgramRunner(program=metadata_args)
         res = p.run()
+
         if log:
             print("📦 Adding Song metadata:", res[1], file)
             if res[0].stderr:
