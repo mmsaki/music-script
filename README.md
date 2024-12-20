@@ -7,6 +7,7 @@ Add metadata to downloaded songs from Youtube Playlist or Soundcloud.
 - [x] 💿 Artist (+ muliple artists)
 - [x] 💿 Album Artist
 - [x] 💿 Album name
+- [x] 💿 Album art
 - [x] 💿 Song Title
 - [x] 💿 Comment
 - [x] 💿 Copyright
