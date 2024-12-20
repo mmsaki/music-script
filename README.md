@@ -2,8 +2,20 @@
 
 Add metadata to downloaded songs from Youtube Playlist or Soundcloud.
 
-<img width="508" alt="Screenshot 2024-12-20 at 2 50 56 PM" src="https://github.com/user-attachments/assets/99b7c16f-2318-408e-ae74-ae1615b40fe8" />
+<img width="685" alt="Screenshot 2024-12-20 at 3 08 02 PM" src="https://github.com/user-attachments/assets/52fa0b53-490c-4f9f-964f-63f96ae008fe" />
 
+- [x] 💿 Artist (+ muliple artists)
+- [x] 💿 Album Artist
+- [x] 💿 Album name
+- [x] 💿 Song Title
+- [x] 💿 Comment
+- [x] 💿 Copyright
+- [x] 💿 Track #No
+- [x] 💿 Genre
+- [x] 💿 Composser
+- [x] 💿 Description
+- [x] 💿 Year
+- [x] 💿 Lyrics
 
 ## Dependencies
 
