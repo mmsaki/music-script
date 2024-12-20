@@ -34,21 +34,31 @@ def download(album: Album, log=False):
         print("📦 Finished Running download", res[1])
         if res[0].stdout:
             print("🪵 Log: ", res[0].stdout)
+
     print("🗂️ Download Results: ", res[1])
 
 
 def rename_songs(album: Album, log=False):
     """Rename songs by removing yt-dlpd download tags"""
+
     files = os.listdir(album._download_path)
+
     for file in files:
         new_name = file.replace(" (Official Video)", "")
+        new_name = new_name.replace(" (Official Music Video)", "")
         new_name = new_name.replace(" (Official Visualizer)", "")
         new_name = new_name.replace(" (Audio)", "")
+        new_name = new_name.replace(" (Official Audio)", "")
         new_name = new_name.replace(" (Lyric Video)", "")
         new_name = new_name.replace(" (Lyric Video)", "")
         new_name = new_name.replace(" (Visualizer)", "")
         new_name = new_name.replace(" (OFFICIAL VIDEO)", "")
-        new_name = new_name.replace(f"{album.artist} - ", "")
+
+        split_name = new_name.split(" - ")
+        if len(split_name) > 1:
+            album.artist = split_name[0]
+            new_name = "".join(split_name[1:])
+
         # TODO: santize song titles
         new_path = album._download_path + "/" + new_name
         old_path = album._download_path + "/" + file
@@ -97,17 +107,28 @@ def add_metadata(album: Album, log=False):
             "-disposition:1",
             "attached_pic",
             "-y",
-            "-metadata", album_name,
-            "-metadata", artist,
-            "-metadata", album_artist,
-            "-metadata", title,
-            "-metadata", year,
-            "-metadata", track,
-            "-metadata", comment,
-            "-metadata", genre,
-            "-metadata", copyright,
-            "-metadata", description,
-            "-metadata", grouping,
+            "-metadata",
+            album_name,
+            "-metadata",
+            artist,
+            "-metadata",
+            album_artist,
+            "-metadata",
+            title,
+            "-metadata",
+            year,
+            "-metadata",
+            track,
+            "-metadata",
+            comment,
+            "-metadata",
+            genre,
+            "-metadata",
+            copyright,
+            "-metadata",
+            description,
+            "-metadata",
+            grouping,
             # "-metadata", song_lyrcis,
             new_path,
         ]
@@ -124,6 +145,8 @@ def add_metadata(album: Album, log=False):
                 args = ["rm", f"{file_path}"]
                 p = ProgramRunner(program=args)
                 p.run()
+
+    album._songs = os.listdir(album.path)
 
     # Clean download directory
     if len(os.listdir(album._download_path)) == 0:

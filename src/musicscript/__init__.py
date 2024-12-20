@@ -16,9 +16,9 @@ def main() -> None:
     year = input("Enter Year: ")
     copyright = input("Enter Copyright: ")
     genre = input("Enter Genre: ")
-    # comment = input("Enter comment: ")
-    # description = input("Enter description: ")
-    # grouping = input("Enter grouping: ")
+    comment = input("Enter Comment: ")
+    description = input("Enter Description: ")
+    grouping = input("Enter grouping: ")
 
     # [0]: DEFAULT values
     if not artist:
@@ -45,8 +45,8 @@ def main() -> None:
     album.year = year
     album.copyright = copyright
     album.genre = genre
-    # album.comment = comment
-    # album.description = description
+    album.comment = comment
+    album.description = description
     # album.grouping = grouping
 
     print("📦 Album Directory: ", album.path)
