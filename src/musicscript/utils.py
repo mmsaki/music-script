@@ -89,8 +89,12 @@ def add_metadata(album: Album, log=False):
         copyright = "copyright=" + f"{album.copyright}"
         description = "description=" + f"{album.description}"
         grouping = "grouping=" + f"{album.grouping}"
-        # lyrics = input(f"Enter Song Lyrics ({file}): ") # Ignore for now
-        # song_lyrcis = "artist=" + f"{lyrics}"
+        lyrics_file = input(f"Enter Song Lyrics file ({file}): ") # Ignore for now
+        song_lyrics = ""
+        if os.path.isfile(lyrics_file):
+          with open(lyrics_file, 'r') as f:
+              song_lyrics = "".join(f.readlines())
+        lyrics = "lyrics=" + f"{song_lyrics}"
 
         metadata_args = [
             "ffmpeg",
@@ -129,7 +133,7 @@ def add_metadata(album: Album, log=False):
             description,
             "-metadata",
             grouping,
-            # "-metadata", song_lyrcis,
+            "-metadata", lyrics,
             new_path,
         ]
 
