@@ -98,11 +98,11 @@ def add_metadata(album: Album, log=False):
         copyright = "copyright=" + f"{album.copyright}"
         description = "description=" + f"{album.description}"
         grouping = "grouping=" + f"{album.grouping}"
-        lyrics_file = input(f"Enter Song Lyrics file ({new_path}): ") # Ignore for now
+        lyrics_file = input(f"Enter Song Lyrics file ({new_path}): ")
         song_lyrics = ""
         if os.path.isfile(lyrics_file):
-          with open(lyrics_file, 'r') as f:
-              song_lyrics = "".join(f.readlines())
+            with open(lyrics_file, "r") as f:
+                song_lyrics = "".join(f.readlines())
         lyrics = "lyrics=" + f"{song_lyrics}"
 
         metadata_args = [
@@ -142,7 +142,8 @@ def add_metadata(album: Album, log=False):
             description,
             "-metadata",
             grouping,
-            "-metadata", lyrics,
+            "-metadata",
+            lyrics,
             new_path,
         ]
 
