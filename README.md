@@ -1,8 +1,6 @@
 # Music Script
 
-Add metadata to downloaded songs from Youtube Playlist or Soundcloud.
-
-<img width="685" alt="Screenshot 2024-12-20 at 3 08 02 PM" src="https://github.com/user-attachments/assets/52fa0b53-490c-4f9f-964f-63f96ae008fe" />
+Add metadata to your yt-dlp downloaded songs from Youtube Playlist.
 
 - [x] 💿 Artist (+ muliple artists)
 - [x] 💿 Album Artist
@@ -18,10 +16,7 @@ Add metadata to downloaded songs from Youtube Playlist or Soundcloud.
 - [x] 💿 Year
 - [x] 💿 Lyrics
 
-## Dependencies
-
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) - used to download songs from youtube / soundcloud / spotify
-- [ffmpeg](https://ffmpeg.org/download.html) - using for adding metadata to music files
+![](./resources/lyrics-example.png)
 
 ## How to Install
 
@@ -42,8 +37,6 @@ musicscript
 # Enter Album Name:
 # Enter Yotube Playlist / Soundcloud Album:
 ```
-
-<img width="722" alt="Screenshot 2024-12-18 at 9 51 21 AM" src="https://github.com/user-attachments/assets/3022e351-de04-4c17-9261-ac8ab02145f3" />
 
 ## Local Setup
 
@@ -77,11 +70,18 @@ uv run musicscript;
 # 👾 Hello, Music Script
 # Enter Artist Name:
 # Enter Album Name:
-# Enter Yotube Playlist / Soundcloud Album:
+# Enter Youtube Playlist:
+# Enter Image:
+# Enter Year:
+# Enter Copyright:
+# Enter Genre:
 ```
+
+## Dependencies
+
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) - used to download songs from youtube / soundcloud / spotify
+- [ffmpeg](https://ffmpeg.org/download.html) - using for adding metadata to music files
 
 ## Test
 
-TODO!
-
-Enjoy offline streaming!
+Enjoy offline music, you can still pay for streaming!
