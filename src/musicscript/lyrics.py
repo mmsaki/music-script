@@ -1,7 +1,6 @@
 import re
 import requests
 from bs4 import BeautifulSoup
-from musicscript.song import Song
 
 
 def linkify(s: str) -> str:
@@ -12,7 +11,7 @@ def linkify(s: str) -> str:
 
 
 def remove_feat(song_title: str) -> str:
-    lookup = ["ft.", "ft", "feat", "feat."]
+    _lookup = ["ft.", "ft", "feat", "feat."]
     pattern = r"(\(|\[)(ft|Ft|Feat|feat)(.)+?(\)|\])\s|(Ft|ft|feat|Feat)([^\[\(|\n]+)\s"
     title = re.sub(pattern, "", song_title + "\n")
     return title.strip()
@@ -41,10 +40,10 @@ def get_lyrics(artist: str, title: str) -> str:
         return ""
 
     soup = BeautifulSoup(response.content, features="html.parser")
-    div = soup.find("div", "Lyrics-sc-1bcc94c6-1 bzTABU")
+    div = soup.find_all(attrs={"data-lyrics-container": "true"})
 
     if div:
-        lyrics = div.get_text(separator="\n")
+        lyrics = "\n".join([lyrics.get_text(separator="\n") for lyrics in div])
         return lyrics
     else:
         return ""
