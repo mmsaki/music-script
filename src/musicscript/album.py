@@ -1,24 +1,20 @@
-from dataclasses import dataclass
 from typing import List
 from musicscript.song import Song
 
 
-@dataclass
 class Album:
     """Class that describes an Album"""
 
-    album_artist: str = ""
-    album_name: str = ""
     year: str = ""
     genre: str = ""
     cover: str = ""
-    path: str = ""
-    url: str = ""
     copyright: str = ""
-    download_path: str = ""
 
-    def __init__(self):
-        self.songs = []
-
-    def add_song(self, song: Song):
-        self.songs.append(song)
+    def __init__(self, url: str, album_artist: str, album_name: str, cover: str):
+        self.songs: List[Song] = []
+        self.url = url
+        self.album_artist = album_artist
+        self.album_name = album_name
+        self.path = "music/" + album_artist + " - " + album_name + "/"
+        self.download_path = self.path + "download/"
+        self.cover = cover
