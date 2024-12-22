@@ -1,6 +1,7 @@
 import re
 import requests
 from bs4 import BeautifulSoup
+from unidecode import unidecode
 
 
 def linkify(s: str) -> str:
@@ -26,9 +27,9 @@ def build_link(artist: str, title: str) -> str:
     title = linkify(remove_feat(title))
 
     if artist:
-        return BASE_URL + artist + "-" + title + SUFFIX
+        return BASE_URL + unidecode(artist + "-" + title) + SUFFIX
     else:
-        return BASE_URL + title + SUFFIX
+        return BASE_URL + unidecode(title) + SUFFIX
 
 
 def get_lyrics(artist: str, title: str) -> str:
