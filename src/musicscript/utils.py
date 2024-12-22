@@ -33,13 +33,16 @@ def get_song_title(file_title: str) -> str:
     """
     split = file_title.split(" - ")
     if len(split) > 1:
-        return remove_title_artifacts("".join(split[1:]))
+        return remove_title_artifacts("".join(split[1]))
     else:
         return remove_title_artifacts(split[0])
 
 
 def remove_title_artifacts(title: str):
-    pattern = r"\s(\(|\[)(Official|official|Lyric|OFFICIAL|Audio|Visualize)([^\n\]\)])*(\)|\])"
+    split = title.split(" - ")
+    if len(split) > 2:
+      title = " - ".join(split[:2])
+    pattern = r"\s(\(|\[)*(Official|official|Lyric|OFFICIAL|Audio|Visualizer|Exclusive|Music)([^\n\]\)])*(\)|\])*"
     new_title = re.sub(pattern, "", title + "\n")
     return new_title.strip()
 

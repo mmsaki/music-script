@@ -11,6 +11,9 @@ artifacts_tests = [
     ("Artist - Song Title (Lyric Video)", "Artist - Song Title"),
     ("Artist - Song Title (Visualizer)", "Artist - Song Title"),
     ("Artist - Song Title (OFFICIAL VIDEO)", "Artist - Song Title"),
+    ("Artist - Song Title (Music Video)", "Artist - Song Title"),
+    ("Artist - Song Title (Exclusive Music VIDEO)", "Artist - Song Title"),
+    ("Artist - Song Title - Visualizer", "Artist - Song Title"),
 ]
 
 
