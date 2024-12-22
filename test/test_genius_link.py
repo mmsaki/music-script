@@ -1,4 +1,4 @@
-from musicscript.get_genius_lyrics import build_link
+from musicscript.lyrics import build_link
 
 link_tests = [
     (

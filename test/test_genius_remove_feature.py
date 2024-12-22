@@ -1,4 +1,4 @@
-from musicscript.get_genius_lyrics import remove_feat
+from musicscript.lyrics import remove_feat
 
 feature_tests = [
     ("Forgiveless (feat. Ol' Dirty Bastard)", "Forgiveless"),
