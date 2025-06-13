@@ -1,5 +1,12 @@
 # Music Script
 
+![PyPI - Version](https://img.shields.io/pypi/v/musicscript)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/musicscript)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/mmsaki/musicscript)
+![GitHub License](https://img.shields.io/github/license/mmsaki/musicscript)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mmsaki/musicscript)
+![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/msakiart)
+
 Add metadata to your yt-dlp downloaded songs from Youtube Playlist.
 
 - [x] 💿 Artist (+ muliple artists)
