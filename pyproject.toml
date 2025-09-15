@@ -1,6 +1,6 @@
 [project]
 name = "musicscript"
-version = "0.2.0"
+version = "0.1.6"
 description = "Add your description here"
 readme = "README.md"
 authors = [
