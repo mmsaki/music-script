@@ -17,7 +17,7 @@ def main() -> None:
     year = input("Enter Year: ")
     copyright_ = input("Enter Copyright: ")
     genre = input("Enter Genre: ")
-    
+
     # Example
     # album_artist = "SZA"
     # album_name = "SOS Deluxe: LANA"
@@ -31,7 +31,7 @@ def main() -> None:
     try:
         response = requests.get(url)
         if response.status_code != 200:
-          raise ValueError(f"Request failed for url:{url}")
+            raise ValueError(f"Request failed for url:{url}")
     except:
         raise ValueError(f"Request failed for url:{url}")
 
@@ -46,7 +46,7 @@ def main() -> None:
     print("📦 Album Directory: ", album.path)
 
     # [3]: Download songs
-    download(album, log=False)
+    download(album, log=True)
 
     # [4]: Rename songs
     add_songs(album=album, log=True)

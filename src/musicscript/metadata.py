@@ -3,7 +3,6 @@ from musicscript.program_runner import ProgramRunner
 from musicscript.runner import Runner
 from musicscript.song import Song
 from musicscript.album import Album
-from musicscript.program_runner import ProgramRunner
 from musicscript.utils import get_name_format
 from musicscript.lyrics import get_lyrics
 
